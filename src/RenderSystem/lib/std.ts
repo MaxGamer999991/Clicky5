@@ -55,7 +55,7 @@ export class Color {
 
 	constructor();
 	constructor(color: string);
-	constructor(r: number, g: number, b: number, a: number);
+	constructor(r: number, g: number, b: number, a?: number);
 
 	constructor(r_string?: number | string, g?: number, b?: number, a?: number) {
 		if (typeof r_string === 'string') {

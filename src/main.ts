@@ -1,6 +1,7 @@
 import { init as canvasInit } from "./canvas.js";
 import { System } from "./RenderSystem/lib/module.js";
 import { init as mouseInit, main as mouseMain } from "./RenderSystem/lib/mouse.js";
+import { render as debug } from "./Debug.js";
 
 const ctx = canvasInit();
 const system = new System();
@@ -31,6 +32,9 @@ function main() {
 	system.render(ctx, dt);
 
 	mouseMain();
+	const url = window.location.hash.toLocaleLowerCase();
+	(window as any).DEBUG = url.includes("debug") && !url.includes("!debug") && !url.includes("debug2");
+	if (((window as any).DEBUG && !url.includes("debug1")) || (url.includes("debug2") && !url.includes("!debug2"))) debug(system, ctx);
 	(window as any).mouse = mouse;
 	(window as any).system = system;
 	lastTime = performance.now();
