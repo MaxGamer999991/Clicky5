@@ -1,4 +1,4 @@
-import { Gruppe, Rect, Text } from "./RenderSystem/lib/Elemente.js";
+import { Gruppe, Rect, _Text } from "./RenderSystem/lib/Elemente.js";
 import { System } from "./RenderSystem/lib/module.js";
 import { Mouse } from "./RenderSystem/lib/mouse.js";
 import { Color, Vector2 } from "./RenderSystem/lib/std.js";
@@ -7,8 +7,8 @@ class Title {
 	gruppe: Gruppe;
 
 	background: Rect;
-	text: Text;
-	text2: Text;
+	text: _Text;
+	text2: _Text;
 
 	appearance = {
 		background: new Color("rgba(92, 92, 92, 1)"),
@@ -25,12 +25,12 @@ class Title {
 		this.background.color = this.appearance.background;
 		this.background.round = 20;
 		
-		this.text = new Text();
+		this.text = new _Text();
 		this.text.animation.position = new Vector2(0, ctx.canvas.height / 2 - 30);
 		this.text.color = this.appearance.text;
 		this.text.size = 25;
 		this.text.text = "Clicky v5";
-		this.text2 = new Text();
+		this.text2 = new _Text();
 		this.text2.animation.position = new Vector2(0, ctx.canvas.height / 2 - 30);
 		this.text2.color = this.appearance.text;
 		this.text2.size = 25;

@@ -7,7 +7,7 @@ export function render(system, ctx) {
     ctx.font = "20px monospace";
     function list(gruppe, text, last) {
         const text2 = text.slice(0, -2) +
-            (text.length > 0 ? (last ? "\u2514 " : "\u251C ") : "");
+            (text.length > 0 ? (last ? "\u2515 " : "\u251D ") : "");
         const text3 = gruppe.constructor.name +
             (gruppe instanceof Gruppe ? ": " + gruppe.name : "");
         ctx.fillStyle = "dimgray";

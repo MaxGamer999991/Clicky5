@@ -1,6 +1,7 @@
 export class Gruppe {
     name = "Gruppe";
     elemente = [];
+    visible = true;
     constructor() { }
     push(element) {
         this.elemente.push(element);
@@ -11,6 +12,8 @@ export class Gruppe {
         return this.elemente.splice(index);
     }
     render(ctx, dt) {
+        if (!this.visible)
+            return;
         for (let i = 0; i < this.elemente.length; i++) {
             this.elemente[i].render(ctx, dt);
         }

@@ -8,13 +8,24 @@ const mouse = mouseInit();
 import { Taskbar } from "./RenderSystem/mod/taskbar.js";
 import { Gruppe } from "./RenderSystem/lib/Elemente.js";
 import { TopBar } from "./topbar.js";
+import { Scene } from "./RenderSystem/mod/scene.js";
+const sceneGruppe = new Gruppe();
+sceneGruppe.name = "Scene";
+system.push(sceneGruppe);
+const scene = new Scene(sceneGruppe, ctx);
+(async () => {
+    scene.addScene((await import("./scene/home.js")).default, ctx);
+    scene.addScene((await import("./scene/upgrades.js")).default, ctx);
+    scene.addScene((await import("./scene/settings.js")).default, ctx);
+})();
 const taskbarGruppe = new Gruppe();
 taskbarGruppe.name = "Taskbar";
 system.push(taskbarGruppe);
 const taskbar = new Taskbar(taskbarGruppe, ctx);
+taskbar.onClick = () => scene.tab = taskbar.tab;
 taskbar.push("Home");
 taskbar.push("Upgrades");
-taskbar.push("Setings");
+taskbar.push("Settings");
 const topbar = new TopBar(system, ctx);
 let lastTime = 0;
 function main() {
@@ -25,6 +36,7 @@ function main() {
     topbar.update(dt, ctx, mouse);
     system.render(ctx, dt);
     mouseMain();
+    scene.update(dt, ctx, mouse);
     const url = window.location.hash.toLocaleLowerCase();
     window.DEBUG = url.includes("debug") && !url.includes("!debug") && !url.includes("debug2");
     if ((window.DEBUG && !url.includes("debug1")) || (url.includes("debug2") && !url.includes("!debug2")))

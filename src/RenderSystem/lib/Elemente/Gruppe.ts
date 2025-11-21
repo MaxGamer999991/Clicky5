@@ -3,6 +3,7 @@ import { Elemente } from "../Elemente.js";
 export class Gruppe {
 	name: string = "Gruppe"
 	elemente: Elemente[] = [];
+	visible: boolean = true;
 
 	constructor() {}
 
@@ -15,6 +16,7 @@ export class Gruppe {
 	}
 
 	render(ctx: CanvasRenderingContext2D, dt: number) {
+		if (!this.visible) return;
 		for (let i = 0; i < this.elemente.length; i++) {
 			this.elemente[i].render(ctx, dt);
 		}

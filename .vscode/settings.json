@@ -1,4 +1,5 @@
 {
 	"window.commandCenter": true,
-	"powershell.buttons.showRunButtons": true
+	"powershell.buttons.showRunButtons": true,
+	"git.decorations.enabled": false
 }

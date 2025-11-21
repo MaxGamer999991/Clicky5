@@ -4,9 +4,9 @@ import { Color } from "../RenderSystem/lib/std.js";
 
 export default function main(parent: Gruppe) {
 	(parent.elemente[0] as Rect).color = new Color("rgba(15, 15, 15, 1)");
-	parent.name = "Home";
+	parent.name = "Upgrades";
 	const text = new _Text();
-	text.text = "Home";
+	text.text = "upgrades";
 	parent.push(text);
 	return function main(gruppe: Gruppe, dt: number, mouse: Mouse) {
 		const background = gruppe.elemente[0] as Rect;

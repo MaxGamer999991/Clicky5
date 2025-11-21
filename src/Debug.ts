@@ -10,7 +10,7 @@ export function render(system: System, ctx: CanvasRenderingContext2D) {
 	
 	function list(gruppe: System | Gruppe | Elemente, text: string, last: boolean) {
 		const text2 = text.slice(0, -2) +
-			(text.length > 0 ? (last ? "\u2514 " : "\u251C ") : "");
+			(text.length > 0 ? (last ? "\u2515 " : "\u251D ") : "");
 		const text3 = gruppe.constructor.name +
 			(gruppe instanceof Gruppe ? ": " + gruppe.name : "");
 		

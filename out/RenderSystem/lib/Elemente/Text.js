@@ -1,5 +1,5 @@
 import { Vector2, Color } from "../std.js";
-export class Text {
+export class _Text {
     position = new Vector2(0, 0);
     size = 30;
     color = new Color("rgba(255, 255, 255, 1)");
